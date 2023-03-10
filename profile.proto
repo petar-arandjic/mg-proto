@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = "github.com/petar-arandjic/mg.grpc/profile";
+
+message CreateProfileRequest {
+  string name = 1;
+  string description = 2;
+  string ownerId = 3;
+  string type = 4;
+}
+
+message Profile {
+  string id = 1;
+  string description = 2;
+  string ownerId = 3;
+  string type = 4;
+  string updatedAt = 5;
+  string createdAt = 6;
+}
+
+service ProfileService {
+  rpc CreateProfile(CreateProfileRequest) returns (Profile);
+}
